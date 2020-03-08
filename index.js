@@ -102,9 +102,17 @@ function temperatureInF(num, fOrC) {
  *   email: "leia@leia.com",
  * }
 */
-function makePersonObject(/* code here */) {
+function makePersonObject(id, name, email) {
   /* code here */
-}
+  let person = new Object;
+    person.id = id,
+    person.name = name,
+    person.email = email
+    return person;
+  }
+
+  
+  
 
 /**
  * ### Challenge `getName`

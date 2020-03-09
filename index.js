@@ -127,9 +127,14 @@ function makePersonObject(id, name, email) {
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-function getName(/* code here */) {
+function getName(object) {
   /* code here */
-}
+
+    return `Hello, my name is ${object.name}.`;
+
+  }
+
+
 
 
 /**
@@ -147,8 +152,10 @@ function getName(/* code here */) {
  * passing in [ 'orange', 'grape', 'apple', 'banana', 'mango' ] as the argument,
  * the returned value should be: 2.
 */
-function appleIndex(/* code here */) {
+function appleIndex(array) {
   /* code here */
+  let word = 'apple';
+  return array.indexOf(word);
 }
 
 /**
@@ -166,8 +173,18 @@ function appleIndex(/* code here */) {
  * passing in [ 'orange', 'apple', 'banana', 'apples', 'apple', 'mango' ] as the argument,
  * the returned value should be: [ false, true, false, false, true, false ].
 */
-function isItAnApple(/* code here */) {
+function isItAnApple(array) {
   /* code here */
+  let newArray = [];
+  for(let i = 0; i<array.length; i++){
+    if(array[i]=== 'apple'){
+      newArray.push(true);
+    } else{
+      newArray.push(false);
+    }
+    
+  }   
+  return newArray;
 }
 
 
@@ -226,6 +243,8 @@ function get3rdCar(inventory) {
 */
 function getCarInfoByIndex(inventory, index) {
   /* code here */
+  let car = inventory[index];
+  return `This is a ${car.car_make} ${car.car_model}`;
 }
 
 /**
@@ -241,6 +260,7 @@ function getCarInfoByIndex(inventory, index) {
 */
 function getLastCarInfo(/* code here */) {
   /* code here */
+
 }
 
 /**

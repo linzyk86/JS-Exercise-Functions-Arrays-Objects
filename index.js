@@ -35,8 +35,8 @@ function addNumbers(num1, num2) {
  * the returned value should look like: 'Goodbye, Andy. Have a great day.'
  * 
 */
-function sayGoodbye(/* code here */) {
-  /* code here */
+function sayGoodbye(name) {
+  return `Goodbye, ${name}. Have a great day.`;
 }
 
 /**
@@ -53,8 +53,9 @@ function sayGoodbye(/* code here */) {
  * Hint 1: The formula for converting celsius to fahrenheit is t*9/5 + 32 where t is the temperature in celsius.
  * Hint 2: There is a very easy way to round numbers in JS. Do a google search to find out how. 
 */
-function temperatureCtoF(/* code here */) {
+function temperatureCtoF(temp) {
   /* code here */
+  return Math.round(((temp*9)/5)+32);
 }
 
 /**
@@ -74,8 +75,14 @@ function temperatureCtoF(/* code here */) {
  * 
  * Hint: You can call your `temperatureCtoF` function from inside `temperatureInF`.
 */
-function temperatureInF(/* code here */) {
+function temperatureInF(num, fOrC) {
   /* code here */
+  if(fOrC == "F"){
+    return `${num}F`;
+  } else if(fOrC == "C"){
+    let temp = temperatureCtoF(num);
+    return `${temp}F`;
+  }
 }
 
 
@@ -95,9 +102,17 @@ function temperatureInF(/* code here */) {
  *   email: "leia@leia.com",
  * }
 */
-function makePersonObject(/* code here */) {
+function makePersonObject(id, name, email) {
   /* code here */
-}
+  let person = new Object;
+    person.id = id,
+    person.name = name,
+    person.email = email
+    return person;
+  }
+
+  
+  
 
 /**
  * ### Challenge `getName`
@@ -112,9 +127,14 @@ function makePersonObject(/* code here */) {
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-function getName(/* code here */) {
+function getName(object) {
   /* code here */
-}
+
+    return `Hello, my name is ${object.name}.`;
+
+  }
+
+
 
 
 /**
@@ -132,8 +152,10 @@ function getName(/* code here */) {
  * passing in [ 'orange', 'grape', 'apple', 'banana', 'mango' ] as the argument,
  * the returned value should be: 2.
 */
-function appleIndex(/* code here */) {
+function appleIndex(array) {
   /* code here */
+  let word = 'apple';
+  return array.indexOf(word);
 }
 
 /**
@@ -151,8 +173,18 @@ function appleIndex(/* code here */) {
  * passing in [ 'orange', 'apple', 'banana', 'apples', 'apple', 'mango' ] as the argument,
  * the returned value should be: [ false, true, false, false, true, false ].
 */
-function isItAnApple(/* code here */) {
+function isItAnApple(array) {
   /* code here */
+  let newArray = [];
+  for(let i = 0; i<array.length; i++){
+    if(array[i]=== 'apple'){
+      newArray.push(true);
+    } else{
+      newArray.push(false);
+    }
+    
+  }   
+  return newArray;
 }
 
 
@@ -211,6 +243,8 @@ function get3rdCar(inventory) {
 */
 function getCarInfoByIndex(inventory, index) {
   /* code here */
+  let car = inventory[index];
+  return `This is a ${car.car_make} ${car.car_model}`;
 }
 
 /**
@@ -224,8 +258,10 @@ function getCarInfoByIndex(inventory, index) {
  * For example, if getLastCarInfo is invoked passing the inventory inside /data/inventory.js,
  * it will return `This is a Lincoln Town Car`.
 */
-function getLastCarInfo(/* code here */) {
+function getLastCarInfo(array) {
   /* code here */
+  var val = array[array.length - 1];
+  return `This is a ${val.car_make} ${val.car_model}`
 }
 
 /**
@@ -237,9 +273,14 @@ function getLastCarInfo(/* code here */) {
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * getModelYears returns an array containing all the 'car_year's in the inventory.
 */
-function getModelYears(/* code here */) {
+function getModelYears(array) {
   /* code here */
-}
+  let years = [];
+  for(let i = 0; i<array.length; i++){ 
+    years.push(array[i].car_year);     
+  }
+   return years;
+};
 
 /**
  * ### Challenge `getCarInfoById`
@@ -255,8 +296,13 @@ function getModelYears(/* code here */) {
  * For example, if getCarInfoById is invoked with the inventory and the number 1,
  * it will return `This is a Lincoln Navigator`.
 */
-function getCarInfoById(/* code here */) {
+function getCarInfoById(array, num) {
   /* code here */
+  let index = num-1;
+  let carMake = array[index].car_make;
+  let carModel = array[index].car_model;
+
+  return `This is a ${carMake} ${carModel} `;
 }
 
 /**
@@ -273,7 +319,7 @@ function getCarInfoById(/* code here */) {
  * with a `car_year` which is at most the given desired max year,
  * in the same order as they appear in the original inventory.
 */
-function getOlderCars(/* code here */) {
+function getOlderCars(array, ) {
   /* code here */
 }
 
